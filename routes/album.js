@@ -59,7 +59,7 @@ router.put("/update/:albumId", async (req, res) => {
         res.status(400).send({ success: false, msg: error });
     }
 });
-
+//delete to album details
 router.delete("/delete/:albumId", async (req, res) => {
     const filter = { _id: req.params.albumId };
 

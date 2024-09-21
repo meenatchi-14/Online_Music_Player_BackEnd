@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const song = require("../models/song");
-
+// create to songs
 router.post("/save", async (req, res) => {
     const newSong = song({
         name: req.body.name,
@@ -20,6 +20,7 @@ router.post("/save", async (req, res) => {
     }
 });
 
+//get one song 
 router.get("/getOne/:songId", async (req, res) => {
     const filter = { _id: req.params.songId };
 
@@ -32,6 +33,7 @@ router.get("/getOne/:songId", async (req, res) => {
     }
 });
 
+//get all songs
 router.get("/getAllSongs", async (req, res) => {
     const options = {};
     const cursor = await song.find(options).sort({ createdAt: 1 });
@@ -42,14 +44,15 @@ router.get("/getAllSongs", async (req, res) => {
     }
 });
 
-
+//get to FavouritesSongs
 router.get("/getFavouritesSongs", async (req, res) => {
     const query = req.query.songId;
     res.send(query);
-    res.status(200).send({ success: true, data: query });
+    // res.status(200).send({ success: true, data: query });
 
 });
 
+//update to songs details
 router.put("/update/:songId", async (req, res) => {
     const filter = { _id: req.params.songId };
     const options = {
@@ -75,7 +78,7 @@ router.put("/update/:songId", async (req, res) => {
         res.status(400).send({ success: false, msg: error });
     }
 });
-
+//delete to songs details
 router.delete("/delete/:songId", async (req, res) => {
     const filter = { _id: req.params.songId };
 

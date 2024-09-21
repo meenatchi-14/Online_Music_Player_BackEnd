@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const admin = require("../config/firebase.config");
 const user = require("../models/users.js");
-
+// login
 router.get("/login", async (req, res) => {
     if (!req.headers.authorization) {
         return res.status(500).send({ message: "Invalid Token" });
@@ -60,6 +60,7 @@ const updateUserData = async (decodeValue, req, res) => {
     }
 };
 
+// Get to all users
 router.get("/getAllUsers", async (req, res) => {
     const options = {};
     const cursor = await user.find(options).sort({ createdAt: 1 });
@@ -70,6 +71,7 @@ router.get("/getAllUsers", async (req, res) => {
     }
 });
 
+//Update to role 
 router.put("/updateRole/:userId", async (req, res) => {
     console.log(req.body.role, req.params.userId);
     const filter = { _id: req.params.userId };
@@ -87,6 +89,8 @@ router.put("/updateRole/:userId", async (req, res) => {
     }
 
 });
+
+//delete to user
 router.delete("/delete/:userId", async (req, res) => {
     const filter = { _id: req.params.userId };
     const result = await user.deleteOne(filter);

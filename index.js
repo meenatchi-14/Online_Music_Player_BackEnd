@@ -8,11 +8,10 @@ const songRoute = require("./routes/song.js")
 const PORT = 9695 || process.env.PORT
 
 const app = express();
-require("dotenv/config")
-
+require("dotenv").config()
+//middleware
 app.use(cors({ origin: true }));
 app.use(express.json());
-
 
 app.get("/", (req, res) => {
     return res.json("Online Music Player")
@@ -29,7 +28,6 @@ app.use("/app/artists", artistRoute)
 
 //Songs Routes
 app.use("/app/songs", songRoute)
-
 
 //database connection
 connectDB()

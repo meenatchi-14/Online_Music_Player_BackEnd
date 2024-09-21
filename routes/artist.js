@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-//
+//create artist
 const artist = require("../models/artist.js")
 router.post("/save", async (req, res) => {
     const newArtist = artist({
@@ -17,7 +17,7 @@ router.post("/save", async (req, res) => {
         res.status(400).send({ success: false, msg: error });
     }
 });
-
+//get one artist by id
 router.get("/getOne/:artistId", async (req, res) => {
     const filter = { _id: req.params.artistId };
 
@@ -29,7 +29,7 @@ router.get("/getOne/:artistId", async (req, res) => {
         res.status(400).send({ success: false, msg: "No Data Found" });
     }
 });
-
+//get all artist details
 router.get("/getAllArtists", async (req, res) => {
     const options = {};
     const cursor = await artist.find(options).sort({ createdAt: 1 });
@@ -39,7 +39,7 @@ router.get("/getAllArtists", async (req, res) => {
         res.status(400).send({ success: false, msg: "No Data Found" })
     }
 })
-
+//update to artist details
 router.put("/update/:artistId", async (req, res) => {
     const filter = { _id: req.params.artistId };
     const options = {
@@ -62,7 +62,7 @@ router.put("/update/:artistId", async (req, res) => {
         res.status(400).send({ success: false, msg: error });
     }
 });
-
+//delete to artist details
 router.delete("/delete/:artistId", async (req, res) => {
     const filter = { _id: req.params.artistId };
 
