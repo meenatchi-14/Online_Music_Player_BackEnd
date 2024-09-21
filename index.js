@@ -5,10 +5,12 @@ const userRoute = require("./routes/auth.js");
 const artistRoute = require("./routes/artist.js")
 const albumRoute = require("./routes/album.js")
 const songRoute = require("./routes/song.js")
+require("dotenv").config()
+
 const PORT = 9695 || process.env.PORT
 
 const app = express();
-require("dotenv").config()
+
 //middleware
 app.use(cors({ origin: true }));
 app.use(express.json());
