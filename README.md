@@ -80,8 +80,7 @@ Get All Songs
 
     GET METHOD:
     Write API to create getAllSongs  -
-
-https://online-music-player-backend-uwhm.onrender.com/app/songs/getAllSongs
+    https://online-music-player-backend-uwhm.onrender.com/app/songs/getAllSongs
 
 </li>
  Update Song details with SongId
@@ -124,8 +123,7 @@ Get All Artist
 
     GET METHOD:
     Write API to create getAllArtists  -
-
-https://online-music-player-backend-uwhm.onrender.com/app/artists/getAllArtists
+    https://online-music-player-backend-uwhm.onrender.com/app/artists/getAllArtists
 
 </li>
  Update Artist details with artistId
@@ -168,8 +166,7 @@ Get All Albums
 
     GET METHOD:
     Write API to create getAllAlbums  -
-
-https://online-music-player-backend-uwhm.onrender.com/app/albums/getAllAlbums
+    https://online-music-player-backend-uwhm.onrender.com/app/albums/getAllAlbums
 
 </li>
  Update Album details with albumId
