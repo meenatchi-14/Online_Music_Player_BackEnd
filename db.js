@@ -7,7 +7,7 @@ const connectDB = () => {
         mongoose.connection
             .once("open", () => console.log("Connected"))
     } catch (error) {
-        console.log(`ERROR"${error}`)
+        console.log(`ERROR:${error}`)
     }
 }
 
